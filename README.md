@@ -70,10 +70,6 @@ Weather_App/
 2. Click on "Get Weather" to fetch the weather details.
 3. View the temperature, weather condition, and location.
 
-## Screenshot
-
-![Weather App Screenshot](https://via.placeholder.com/800x400?text=Weather+App+Screenshot)
-
 ## Contributing
 
 Contributions are welcome! Follow these steps to contribute:
