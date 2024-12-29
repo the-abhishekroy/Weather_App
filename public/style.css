@@ -1,57 +1,109 @@
+/* style.css */
+
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Background styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background: linear-gradient(135deg, rgba(34, 49, 63, 0.8), rgba(52, 73, 94, 0.8)),
+      url('https://www.transparenttextures.com/patterns/cloudy.png');
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Main container */
 .container {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 400px;
+  height: 600px; /* Increased height for spacious design */
+  padding: 30px; /* Added more padding */
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.8); /* Fixed consistent dark box color */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
+  backdrop-filter: none; /* No blur for the main box */
   text-align: center;
 }
 
-h1 {
-  margin-top: 30px;
-}
-
+/* Form styling */
 form {
-  margin-top: 30px;
-  display: inline-block;
-  text-align: left;
+  margin-bottom: 30px;
 }
 
-input[type="text"] {
+.city-input {
+  width: 80%;
   padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button[type="submit"] {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border-radius: 5px;
+  margin: 10px 0;
   border: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 10px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1em;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.card {
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 30px auto;
-  padding: 30px;
+.city-input::placeholder {
+  color: #b0b0b0;
+}
+
+.search-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.search-btn:hover {
+  background-color: #1e40af;
+}
+
+/* Weather icons */
+.weather-icon {
+  font-size: 5em;
+  margin-bottom: 10px;
+}
+
+/* Temperature */
+.temperature {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* Location */
+.location {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Weather details */
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.detail-item {
   text-align: center;
 }
 
-.loading {
-  font-size: 18px;
-  margin: 30px 0;
-}
-
+/* Error styling */
 .error {
-  color: red;
-  font-size: 18px;
-  margin: 30px 0;
+  color: #ff4d4d;
+  font-size: 1em;
+  margin-top: 10px;
 }

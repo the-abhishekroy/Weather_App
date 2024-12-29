@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link
@@ -15,23 +17,66 @@
         <input type="text" name="city" placeholder="Enter city name" />
         <button type="submit">Get Weather</button>
       </form>
+
       <% if (error) { %>
       <p class="error"><%= error %></p>
       <% } else if (weather) { %>
       <div class="card">
-        <p>
-          <i class="fas fa-thermometer-half"></i>
-          <%= ((weather.main.temp - 32) * 5 / 9).toFixed(2) %>&deg;C
-        </p>
-        <p>
-          <i class="fas fa-cloud"></i>
-          <%= weather.weather[0].main %>
-        </p>
+        <!-- Weather Icon -->
+        <div class="weather-icon">
+          <% if (weather.weather[0].main === "Clear") { %>
+          ☀️ <!-- Sun -->
+          <% } else if (weather.weather[0].main === "Clouds") { %>
+          ☁️ <!-- Cloud -->
+          <% } else if (weather.weather[0].main === "Rain") { %>
+          🌧️ <!-- Rain -->
+          <% } else if (weather.weather[0].main === "Snow") { %>
+          ❄️ <!-- Snow -->
+          <% } else if (weather.weather[0].main === "Thunderstorm") { %>
+          ⚡ <!-- Thunderstorm -->
+          <% } else if (weather.weather[0].main === "Drizzle") { %>
+          🌦️ <!-- Light rain -->
+          <% } else if (weather.weather[0].main === "Mist") { %>
+          🌫️ <!-- Mist -->
+          <% } else if (weather.weather[0].main === "Fog") { %>
+          🌁 <!-- Fog -->
+          <% } else if (weather.weather[0].main === "Tornado") { %>
+          🌪️ <!-- Tornado -->
+          <% } else { %>
+          🌍 <!-- Default (Earth) -->
+          <% } %>
+        </div>
 
-        <p>
+        <!-- Weather Description -->
+        <p class="weather-description"><%= weather.weather[0].description %></p>
+
+        <!-- Location -->
+        <p class="location">
           <i class="fas fa-map-marker-alt"></i>
           <%= weather.name %>, <%= weather.sys.country %>
         </p>
+
+        <!-- Temperature -->
+        <p class="temperature">
+          <i class="fas fa-thermometer-half"></i>
+          <%= ((weather.main.temp - 32) * 5 / 9).toFixed(2) %>&deg;C
+        </p>
+
+        <!-- Other Weather Details -->
+        <div class="details">
+          <div class="detail-item">
+            <div>Humidity:</div>
+            <div><%= weather.main.humidity %>%</div>
+          </div>
+          <div class="detail-item">
+            <div>Pressure:</div>
+            <div><%= weather.main.pressure %> hPa</div>
+          </div>
+          <div class="detail-item">
+            <div>Wind:</div>
+            <div><%= weather.wind.speed %> m/s</div>
+          </div>
+        </div>
       </div>
       <% } %>
     </div>
